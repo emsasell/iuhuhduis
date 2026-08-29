@@ -1,2 +1,1 @@
-// Конфигурация автоматически берётся из переменных Vercel через /api/config.js.
-// Этот файл редактировать не нужно.
+window.FF_CONFIG={SUPABASE_URL:'',SUPABASE_ANON_KEY:''};

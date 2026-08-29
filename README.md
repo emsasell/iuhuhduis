@@ -1,25 +1,22 @@
-# FriendFind v2 — готовый деплой
+# FriendFind v2 FIXED
 
-Проект уже настроен. Вам нужно только:
+## Нужно сделать только 2 вещи
 
-## 1. Supabase
-- Создайте проект.
-- Откройте SQL Editor.
-- Полностью выполните `supabase/schema.sql`.
-- Authentication → Providers → Email: включите Email.
-- Authentication → URL Configuration: добавьте адрес вашего сайта Vercel в Site URL и Redirect URLs.
+### 1. Supabase
+Откройте SQL Editor и выполните весь файл `supabase/schema.sql`.
 
-## 2. Vercel — переменные окружения
+В Authentication → Providers → Email включите Email.
+В Authentication → URL Configuration добавьте URL вашего сайта Vercel в Redirect URLs.
+
+### 2. Vercel → Settings → Environment Variables
 Добавьте:
-- `NEXT_PUBLIC_SUPABASE_URL`
-- `NEXT_PUBLIC_SUPABASE_ANON_KEY`
-- `SUPABASE_SERVICE_ROLE_KEY`
+- `NEXT_PUBLIC_SUPABASE_URL` — Project URL из Supabase
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY` — anon/public key из Supabase
+- `SUPABASE_SERVICE_ROLE_KEY` — service_role key (только сервер)
 
-`SUPABASE_SERVICE_ROLE_KEY` доступен только серверным функциям и не попадает в браузер.
+После добавления переменных обязательно сделайте **Redeploy**.
 
-## 3. Деплой
-Загрузите содержимое этого проекта в GitHub и импортируйте репозиторий в Vercel, либо выполните `vercel --prod`.
+## Важно
+`public/config.js` больше заполнять не нужно. Сайт автоматически получает публичные Supabase-переменные через `/api/config`.
 
-После этого сайт работает без редактирования файлов.
-
-Владелец: `sunqwix@gmail.com` — при регистрации получает роль `owner` автоматически.
+Владелец `sunqwix@gmail.com` автоматически получает роль owner при регистрации.
